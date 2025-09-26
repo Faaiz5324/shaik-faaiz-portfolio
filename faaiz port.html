@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shaik Faaiz Basha — Portfolio</title>
+  <meta name="description" content="Portfolio of Shaik Faaiz Basha — CSE student. Projects: Healthcare recommendation system, Fire Fighting Robot. Skills: Python, Java, C/C++, ML, Cybersecurity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Use official Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f0f9ff;
+      --card:#ffffff;
+      --muted:#4b5563;
+      --accent:#2563eb;
+      --glass: rgba(0,0,0,0.03);
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(135deg, #f0f9ff, #e0f2fe, #ffffff, #dbeafe);background-size:400% 400%;animation:gradientShift 15s ease infinite;color:#111827;scroll-behavior:smooth}
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container{max-width:1000px;margin:36px auto;padding:28px;animation:fadeIn 1.2s ease}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1e40af);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.15);animation:popIn 1s ease forwards}
+    h1{margin:0;font-size:28px;animation:slideInLeft 1s ease}
+    .tag{color:var(--muted);margin-top:6px;animation:slideInLeft 1.2s ease}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:22px}
+    .card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform .5s ease, box-shadow .5s ease;opacity:0;transform:translateY(20px)}
+    .card.visible{opacity:1;transform:translateY(0)}
+    .card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 12px 28px rgba(0,0,0,0.18)}
+
+    .about p{color:var(--muted);line-height:1.55}
+
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .skill{background:var(--glass);padding:10px;border-radius:10px;animation:fadeUp .8s ease forwards}
+    .bar{height:8px;background:#e5e7eb;border-radius:8px;margin-top:6px;overflow:hidden}
+    .bar > span{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--accent),#60a5fa);transition:width 1.5s ease-in-out}
+
+    .projects .proj{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent);transition:transform .4s ease, box-shadow .4s ease;opacity:0;transform:translateY(20px)}
+    .proj.visible{opacity:1;transform:translateY(0)}
+    .proj:hover{transform:scale(1.03);box-shadow:0 8px 20px rgba(0,0,0,0.1)}
+    .proj h3{margin:0}
+    .proj p{margin:0;color:var(--muted)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag-pill{background:rgba(37,99,235,0.1);padding:6px 8px;border-radius:999px;font-size:13px;color:var(--accent);font-weight:500;transition:background .3s}
+    .tag-pill:hover{background:rgba(37,99,235,0.2)}
+
+    .contact{margin-left:10px}
+    .contact ul{padding:0;margin:0}
+    .contact li{list-style:none;padding:10px 0;border-bottom:1px dashed rgba(0,0,0,0.05);display:flex;align-items:center;gap:12px;opacity:0;transform:translateX(-15px);transition:all .6s ease}
+    .contact li.visible{opacity:1;transform:translateX(0)}
+    .contact i{color:var(--accent);width:24px;text-align:center;font-size:18px;transition:transform .3s ease,color .3s ease}
+    .contact span, .contact a{flex:1;text-align:left;color:inherit;text-decoration:none;word-break:break-word}
+    .contact li a:hover{text-decoration:underline}
+    .edu{margin-top:10px}
+
+    footer{text-align:center;color:var(--muted);margin-top:28px;animation:fadeIn 1.2s ease}
+
+    @media (max-width:920px){
+      .grid{grid-template-columns:1fr}
+      .avatar{width:86px;height:86px;font-size:22px}
+      .contact li{flex-direction:row;align-items:flex-start}
+    }
+
+    .fade-up{opacity:0;transform:translateY(12px);animation:fadeUp .8s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes slideInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes popIn{0%{transform:scale(0.6);opacity:0}100%{transform:scale(1);opacity:1}}
+
+    a.cta{display:inline-block;background:var(--accent);color:#fff;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;transition:background .3s, transform .3s}
+    a.cta:hover{background:#1e40af;transform:scale(1.05)}
+
+    .contact li:hover i{transform:translateY(-2px) scale(1.3);color:#1e40af}
+
+    .languages{list-style:disc inside;color:var(--muted);margin:6px 0;padding-left:18px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="fade-up">
+      <div class="avatar">SF</div>
+      <div>
+        <h1>Shaik Faaiz Basha</h1>
+        <div class="tag">Computer Science & Engineering • AI · ML · Cybersecurity</div>
+        <div style="margin-top:8px"><a class="cta" href="cv.pdf" download>Download CV</a></div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <div class="card about fade-up">
+          <h2>About</h2>
+          <p>Motivated and detail-oriented Computer Science & Engineering student with a strong foundation in Python programming and a deep interest in Artificial Intelligence, Machine Learning, and Cybersecurity. Certified in Cloud AI technologies, with hands-on experience in building intelligent systems and understanding secure computing principles. Quick to learn new tools and concepts, with a passion for developing innovative and secure solutions.</p>
+        </div>
+
+        <div class="card fade-up" style="margin-top:16px">
+          <h2>Projects</h2>
+          <div class="projects" style="margin-top:12px">
+            <article class="proj">
+              <h3>Personalized Healthcare Recommendation & Management System</h3>
+              <p>Built a full-stack healthcare platform that provides personalized treatment recommendations using AI/ML on patient history, symptoms and preferences. Features included symptom checker, preliminary diagnosis, doctor consultation and medication reminders. Implemented secure cloud storage and a recommendation engine.</p>
+              <div class="tags"><span class="tag-pill">Python</span><span class="tag-pill">Machine Learning</span><span class="tag-pill">Cloud</span></div>
+            </article>
+
+            <article class="proj" style="margin-top:12px">
+              <h3>Fire Fighting Robot</h3>
+              <p>Designed and built an autonomous robot using Arduino Uno to detect flame and navigate towards the source to extinguish it using sensors and a pump system.</p>
+              <div class="tags"><span class="tag-pill">Arduino</span><span class="tag-pill">Embedded Systems</span></div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="card fade-up" style="margin-top:16px">
+          <h2>Skills</h2>
+          <div class="skills" style="margin-top:10px">
+            <div class="skill">
+              <strong>C, C++</strong>
+              <div class="bar"><span data-width="85%"></span></div>
+            </div>
+            <div class="skill">
+              <strong>Java</strong>
+              <div class="bar"><span data-width="70%"></span></div>
+            </div>
+            <div class="skill">
+              <strong>Python</strong>
+              <div class="bar"><span data-width="80%"></span></div>
+            </div>
+            <div class="skill">
+              <strong>Computer Hardware</strong>
+              <div class="bar"><span data-width="65%"></span></div>
+            </div>
+            <div class="skill">
+              <strong>Problem Solving</strong>
+              <div class="bar"><span data-width="85%"></span></div>
+            </div>
+            <div class="skill">
+              <strong>Communication</strong>
+              <div class="bar"><span data-width="75%"></span></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card fade-up">
+          <h2>Contact</h2>
+          <div class="contact">
+            <ul>
+              <li><i class="fa-solid fa-envelope"></i><a href="mailto:shaikfaaiz2004@gmail.com">shaikfaaiz2004@gmail.com</a></li>
+              <li><i class="fa-solid fa-phone"></i><a href="tel:+918500220210">8500220210</a></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Vijayawada, Andhra Pradesh</span></li>
+              <li><i class="fa-brands fa-github"></i><a href="https://github.com/Faaiz5324/shaik.git" target="_blank" rel="noopener noreferrer">github.com/Faaiz5324</a></li>
+              <li><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/shaik-faaiz-780b1a36b" target="_blank" rel="noopener noreferrer">linkedin.com/in/shaik-faaiz</a></li>
+            </ul>
+          </div>
+
+          <div class="edu">
+            <h3>Education</h3>
+            <p style="color:var(--muted);margin:6px 0"><strong>B.Tech</strong><br>Vasireddy Venkatadri Institute of Technology — 2023 - 2026</p>
+            <p style="color:var(--muted);margin:6px 0"><strong>Diploma</strong><br>Dhanekula Institute Of Engineering And Technology — 2020 - 2023</p>
+            <p style="color:var(--muted);margin:6px 0"><strong>SSC</strong><br>Sri Chaitanya Techno School — 2020</p>
+          </div>
+
+          <div style="margin-top:12px">
+            <h3>Certificates</h3>
+            <ul style="color:var(--muted);padding-left:18px;margin:8px 0">
+              <li>Zscalar Zero Trust Associate (ZTCA)</li>
+              <li>Google Cloud Generative-AI Virtual Internship</li>
+              <li>Google Android Developer Virtual Internship</li>
+              <li>AICTE Java Internship Certification Course</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card fade-up" style="margin-top:16px">
+          <h2>Languages</h2>
+          <ul class="languages">
+            <li>Telugu (Fluent)</li>
+            <li>English (Fluent)</li>
+            <li>Hindi (Fluent)</li>
+          </ul>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <p>Copyright &copy; 2025 by Shaik Faaiz | All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    },{threshold:0.1});
+
+    document.querySelectorAll('.card, .proj, .contact li').forEach(el=>observer.observe(el));
+
+    const bars = document.querySelectorAll('.bar span');
+    const barObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const bar = entry.target;
+          const finalWidth = bar.getAttribute('data-width') || '0%';
+          bar.style.width = finalWidth;
+          barObserver.unobserve(bar);
+        }
+      });
+    },{threshold:0.5});
+    bars.forEach(bar=>barObserver.observe(bar));
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key && e.key.toLowerCase()==='d') window.location.href='cv.pdf';
+    });
+  </script>
+</body>
+</html>
